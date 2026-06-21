@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Konoba Marenda · Šibenik — Marenda, predah dalmatinskog dana</title>
+<meta name="description" content="Konoba Marenda, Šibenik. Brodet, pašta-fažol, riba s gradela i domaći kruh. Marenda — topli, neužurbani obrok dalmatinske tradicije. 4.7 ★ · ~210 gostiju.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F7F1E6;
+  --sand:#EBDFC9;
+  --sand-2:#E2D4B8;
+  --wine:#7C2A33;
+  --wine-deep:#5E1F26;
+  --ink:#241F1B;
+  --ink-soft:#54493f;
+  --line:rgba(36,31,27,.14);
+  --display:'EB Garamond', serif;
+  --serif:'Source Serif 4', serif;
+  --sans:'DM Sans', sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:auto}
+body{
+  font-family:var(--sans);background:var(--cream);color:var(--ink);
+  font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 36px}
+.eyebrow{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--wine);font-weight:500}
+.reveal{opacity:0;transform:translateY(20px)}
+.clip{clip-path:inset(0 0 100% 0)}
+
+/* HEADER */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;
+  justify-content:space-between;padding:24px 36px;transition:.5s ease;
+}
+header.scrolled{background:rgba(247,241,230,.94);backdrop-filter:blur(8px);padding:15px 36px;box-shadow:0 1px 0 var(--line)}
+.logo{font-family:var(--display);font-size:25px;font-weight:500;letter-spacing:.06em;color:#fff;transition:color .5s}
+header.scrolled .logo{color:var(--ink)}
+.logo b{font-weight:600;font-style:italic;color:#fff}
+header.scrolled .logo b{color:var(--wine)}
+nav.main{display:flex;gap:32px;align-items:center}
+nav.main a{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#fff;opacity:.85;transition:.4s}
+header.scrolled nav.main a{color:var(--ink);opacity:.72}
+nav.main a:hover{opacity:1}
+.btn{font-family:var(--sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;background:var(--wine);color:#fff;padding:13px 26px;transition:background .4s}
+.btn:hover{background:var(--wine-deep)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:24px;height:1.5px;background:#fff;transition:.3s}
+header.scrolled .burger span{background:var(--ink)}
+
+/* HERO fullbleed single + slow zoom */
+.hero{position:relative;height:100vh;min-height:620px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.0)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,15,12,.42),rgba(20,15,12,.30) 45%,rgba(20,15,12,.55))}
+.hero-content{position:relative;z-index:2;color:#fff;padding:0 24px;max-width:920px}
+.hero-content .eyebrow{color:#e9c9a0;display:block;margin-bottom:24px}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(46px,8.2vw,108px);line-height:.98;letter-spacing:.01em}
+.hero h1 i{font-style:italic;color:#e9c9a0}
+.hero p{font-family:var(--serif);font-weight:300;font-size:clamp(17px,2vw,21px);max-width:560px;margin:28px auto 0;color:rgba(255,255,255,.9)}
+.scroll-ind{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:2;color:#fff;font-size:10px;letter-spacing:.24em;text-transform:uppercase;opacity:.8}
+.scroll-ind::after{content:"";display:block;width:1px;height:38px;background:rgba(255,255,255,.6);margin:12px auto 0;animation:pulse 2.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.3;transform:scaleY(.7)}50%{opacity:1;transform:scaleY(1)}}
+
+/* STATS count-up band */
+.stats{background:var(--wine);color:#f7ecd9;padding:56px 0}
+.stats-grid{display:flex;justify-content:center;gap:clamp(40px,8vw,120px);flex-wrap:wrap;text-align:center}
+.stat .num{font-family:var(--display);font-size:clamp(42px,6vw,66px);font-weight:500;line-height:1}
+.stat .lbl{font-size:11px;letter-spacing:.2em;text-transform:uppercase;margin-top:12px;opacity:.82}
+
+/* STORY full-width band */
+.story-band{position:relative;padding:120px 0;background:var(--sand);overflow:hidden}
+.story-band .wrap{position:relative;z-index:2;max-width:760px;text-align:center}
+.story-band .eyebrow{margin-bottom:22px;display:block}
+.story-band h2{font-family:var(--display);font-weight:400;font-size:clamp(30px,4.4vw,50px);line-height:1.18;margin-bottom:26px}
+.story-band h2 i{font-style:italic;color:var(--wine)}
+.story-band p{font-family:var(--serif);font-weight:300;font-size:18px;color:var(--ink-soft);margin-bottom:18px}
+
+/* SECTION HEAD */
+.shead{text-align:center;margin-bottom:60px}
+.shead .eyebrow{display:block;margin-bottom:14px}
+.shead h2{font-family:var(--display);font-weight:400;font-size:clamp(34px,5vw,58px)}
+
+/* HORIZONTAL MENU STRIP */
+.menu{padding:110px 0 90px}
+.menu-strip{display:flex;flex-direction:column}
+.mrow{display:grid;grid-template-columns:230px 1fr auto;gap:32px;align-items:center;padding:30px 0;border-top:1px solid var(--line);transition:background .4s}
+.menu-strip .mrow:last-child{border-bottom:1px solid var(--line)}
+.mrow:hover{background:var(--sand-2)}
+.mrow .mname{font-family:var(--display);font-size:28px;font-weight:500}
+.mrow .mdesc{font-family:var(--serif);font-weight:300;color:var(--ink-soft);font-size:16px;max-width:560px}
+.mrow .mtag{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--wine);white-space:nowrap}
+.menu-note{text-align:center;font-family:var(--display);font-style:italic;font-size:20px;color:var(--ink-soft);margin-top:46px}
+
+/* SPLIT IMAGE FEATURE */
+.feature{padding:0 0 110px}
+.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch}
+.feat-img{overflow:hidden;min-height:520px}
+.feat-img img{width:100%;height:100%;object-fit:cover;filter:sepia(.18) contrast(1.04) saturate(.92)}
+.feat-text{background:var(--ink);color:#efe6d6;display:flex;flex-direction:column;justify-content:center;padding:clamp(40px,6vw,80px)}
+.feat-text .eyebrow{color:#e9b07a}
+.feat-text h2{font-family:var(--display);font-weight:400;font-size:clamp(30px,3.8vw,46px);line-height:1.08;margin:16px 0 24px}
+.feat-text p{font-family:var(--serif);font-weight:300;color:#d4c8b6;margin-bottom:18px;max-width:480px}
+.feat-text .sig{font-family:var(--display);font-style:italic;font-size:23px;color:#e9b07a;margin-top:24px}
+
+/* GALLERY */
+.gallery{padding:0 0 110px}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:240px;gap:12px}
+.gal-grid figure{overflow:hidden}
+.gal-grid img{width:100%;height:100%;object-fit:cover;filter:sepia(.26) contrast(1.05) saturate(.86);transition:transform 1.5s ease}
+.gal-grid figure:hover img{transform:scale(1.06)}
+.gal-grid .wide{grid-column:span 2}
+.gal-grid .tall{grid-row:span 2}
+
+/* LOCATION */
+.location{padding:0 0 30px}
+.loc-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:0;align-items:stretch}
+.loc-info{background:var(--sand);padding:clamp(40px,6vw,76px)}
+.loc-info h2{font-family:var(--display);font-weight:400;font-size:clamp(30px,4vw,46px);margin:14px 0 28px}
+.loc-row{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);max-width:420px}
+.loc-row span:first-child{color:var(--ink-soft);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.loc-row span:last-child{font-family:var(--display);font-size:20px}
+.loc-map{min-height:440px}
+.loc-map iframe{width:100%;height:100%;min-height:440px;border:0;filter:sepia(.1)}
+
+/* FOOTER */
+footer{background:var(--ink);color:#e3d8c8;padding:78px 0 38px}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
+footer h4{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#e9b07a;margin-bottom:18px;font-weight:500}
+footer p,footer a{color:#c9bdac;font-size:15px;margin-bottom:8px;display:block;transition:color .3s}
+footer a:hover{color:#fff}
+.foot-logo{font-family:var(--display);font-size:28px;color:#fff}
+.foot-logo b{font-style:italic;color:#e9b07a}
+.foot-phone{font-family:var(--display);font-size:30px;color:#fff!important;margin-top:6px}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:54px;padding-top:24px;display:flex;justify-content:space-between;font-size:12px;color:#8a7f70;letter-spacing:.04em}
+
+@media(max-width:900px){
+  nav.main{display:none}
+  .burger{display:flex}
+  .mrow{grid-template-columns:1fr;gap:8px;padding:22px 0}
+  .mrow .mtag{order:-1}
+  .feat-grid,.loc-grid{grid-template-columns:1fr}
+  .feat-img{min-height:340px}
+  .gal-grid{grid-template-columns:1fr 1fr;grid-auto-rows:200px}
+  .gal-grid .wide,.gal-grid .tall{grid-column:auto;grid-row:auto}
+  .loc-map{min-height:340px}
+  .foot-grid{grid-template-columns:1fr;gap:28px}
+  .foot-bottom{flex-direction:column;gap:8px}
+}
+@media(prefers-reduced-motion:reduce){
+  .reveal,.clip{opacity:1!important;transform:none!important;clip-path:none!important}
+  *{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <a href="#" class="logo">Konoba <b>Marenda</b></a>
+  <nav class="main">
+    <a href="#prica">Marenda</a>
+    <a href="#jelovnik">Jelovnik</a>
+    <a href="#kuhinja">Kuhinja</a>
+    <a href="#galerija">Galerija</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+  <a href="#kontakt" class="btn">Rezerviraj stol</a>
+  <div class="burger" id="burger"><span></span><span></span><span></span></div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"><img id="heroImg" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1900&q=80" alt="Stol u dalmatinskoj konobi"></div>
+  <div class="hero-content">
+    <span class="eyebrow">Šibenik · Tradicionalna dalmatinska konoba</span>
+    <h1>Marenda — <i>predah</i><br>usred dana.</h1>
+    <p>Brodet, pašta-fažol i domaći kruh. Onaj topli, neužurbani obrok po kojem Dalmacija diše.</p>
+  </div>
+  <div class="scroll-ind">Krenite niže</div>
+</section>
+
+<!-- STATS count-up -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat"><div class="num"><span data-count="4.7" data-dec="1">0</span> ★</div><div class="lbl">Ocjena gostiju</div></div>
+      <div class="stat"><div class="num">~<span data-count="210">0</span></div><div class="lbl">Zadovoljnih gostiju</div></div>
+      <div class="stat"><div class="num"><span data-count="100">0</span>%</div><div class="lbl">Domaće i svježe</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY BAND -->
+<section class="story-band" id="prica">
+  <div class="wrap">
+    <span class="eyebrow reveal">Marenda — naš obred</span>
+    <h2 class="reveal">Marenda nije samo obrok.<br><i>To je predah usred dana.</i></h2>
+    <p class="reveal">Kad se ruke odmore, kruh prelomi, a vino natoči. Brodet krčka polako, fažol se pirja, riba čeka svoj žar na gradelama. Mi kuhamo bez žurbe — s mjerom, strpljenjem i okusima koje pamtimo od nona.</p>
+    <p class="reveal">U Marendi vrijeme teče kako more diše. Sjednite, prelomite kruh i pustite da dan uspori.</p>
+  </div>
+</section>
+
+<!-- HORIZONTAL MENU STRIP -->
+<section class="menu" id="jelovnik">
+  <div class="wrap">
+    <div class="shead reveal">
+      <span class="eyebrow">Iz naše kuhinje</span>
+      <h2>Jelovnik tradicije</h2>
+    </div>
+    <div class="menu-strip">
+      <div class="mrow reveal"><div class="mname">Brodet od miješane ribe</div><div class="mdesc">Sporo pirjana riba i škampi u umaku od rajčice, češnjaka i domaćeg vina, uz palentu.</div><div class="mtag">Klasik konobe</div></div>
+      <div class="mrow reveal"><div class="mname">Pašta-fažol</div><div class="mdesc">Gusta juha od smeđeg graha i tjestenine, s pancetom i kapljom maslinovog ulja.</div><div class="mtag">Prava marenda</div></div>
+      <div class="mrow reveal"><div class="mname">Riba s gradela</div><div class="mdesc">Svježa bijela riba s roštilja, blitva s krumpirom i maslinovo ulje s otoka.</div><div class="mtag">Dnevni ulov</div></div>
+      <div class="mrow reveal"><div class="mname">Crni rižot od sipe</div><div class="mdesc">Kremasti rižot bojan tintom sipe, s mladim lukom i domaćom peteruškom.</div><div class="mtag">More u tanjuru</div></div>
+      <div class="mrow reveal"><div class="mname">Pašticada na dalmatinski</div><div class="mdesc">Marinirana junetina pirjana danima, s domaćim njokima i suhim šljivama.</div><div class="mtag">Nedjeljni ručak</div></div>
+      <div class="mrow reveal"><div class="mname">Domaći kruh i maslinovo ulje</div><div class="mdesc">Kruh pečen svako jutro, ekstra djevičansko ulje i morska sol — početak svake marende.</div><div class="mtag">Za stolom</div></div>
+    </div>
+    <p class="menu-note reveal">Jelovnik se mijenja s ulovom i godišnjim dobom. Za današnju ponudu — samo pitajte.</p>
+  </div>
+</section>
+
+<!-- FEATURE / KITCHEN STORY -->
+<section class="feature" id="kuhinja">
+  <div class="feat-grid">
+    <div class="feat-img reveal clip"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=80" alt="Brodet u loncu"></div>
+    <div class="feat-text reveal">
+      <span class="eyebrow">Naša kuhinja</span>
+      <h2>Polako, kao što se i jelo</h2>
+      <p>U kamenim zidovima starog Šibenika, korak od katedrale, kuhamo onako kako su kuhale naše none — s lokalnom ribom, povrćem s tržnice i bez prečica.</p>
+      <p>Svaki brodet krčka satima. Svaki kruh peče se svako jutro. Marenda je obećanje da će dan, barem za stolom, usporiti.</p>
+      <p class="sig">Dobrodošli za naš stol.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="galerija">
+  <div class="wrap">
+    <div class="shead reveal">
+      <span class="eyebrow">Ambijent</span>
+      <h2>Trenutci iz konobe</h2>
+    </div>
+    <div class="gal-grid">
+      <figure class="wide reveal"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1100&q=80" alt="Riba s gradela"></figure>
+      <figure class="tall reveal"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=700&q=80" alt="Domaći kruh"></figure>
+      <figure class="reveal"><img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=700&q=80" alt="Vino i obrok"></figure>
+      <figure class="reveal"><img src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=700&q=80" alt="Stari grad Šibenik"></figure>
+      <figure class="wide reveal"><img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1100&q=80" alt="Unutrašnjost konobe"></figure>
+      <figure class="reveal"><img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=700&q=80" alt="Tjestenina"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="location" id="kontakt">
+  <div class="loc-grid">
+    <div class="loc-info reveal">
+      <span class="eyebrow">Posjetite nas</span>
+      <h2>Gdje i kada</h2>
+      <div class="loc-row"><span>Adresa</span><span>Ul. Nove crkve 9</span></div>
+      <div class="loc-row"><span>Mjesto</span><span>Šibenik</span></div>
+      <div class="loc-row"><span>Telefon</span><span>022 336 077</span></div>
+      <div class="loc-row"><span>Pon — Pet</span><span>11:00 — 23:00</span></div>
+      <div class="loc-row"><span>Sub — Ned</span><span>11:00 — 24:00</span></div>
+      <a href="tel:+385223360 77" class="btn" style="display:inline-block;margin-top:30px">Rezerviraj stol</a>
+    </div>
+    <div class="loc-map reveal">
+      <iframe src="https://maps.google.com/maps?q=Konoba+Marenda+Sibenik&output=embed" loading="lazy" title="Karta — Konoba Marenda Šibenik"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">Konoba <b>Marenda</b></div>
+        <p style="margin-top:18px;max-width:320px">Tradicionalna dalmatinska konoba u srcu starog Šibenika. Marenda — predah, kruh i more u tanjuru.</p>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <p>Ul. Nove crkve 9, Šibenik</p>
+        <a href="tel:+385223360 77" class="foot-phone">022 336 077</a>
+      </div>
+      <div>
+        <h4>Radno vrijeme</h4>
+        <p>Pon — Pet · 11:00 — 23:00</p>
+        <p>Sub — Ned · 11:00 — 24:00</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Konoba Marenda · Šibenik</span>
+      <span>4.7 ★ · ~210 gostiju</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const hdr = document.getElementById('hdr');
+window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', window.scrollY > 40));
+document.getElementById('burger').addEventListener('click', () => document.getElementById('jelovnik').scrollIntoView({behavior:'smooth'}));
+
+if (!reduced) {
+  const lenis = new Lenis({ duration: 1.3, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true });
+  function raf(time){ lenis.raf(time); requestAnimationFrame(raf); }
+  requestAnimationFrame(raf);
+
+  gsap.registerPlugin(ScrollTrigger);
+  lenis.on('scroll', ScrollTrigger.update);
+
+  // hero slow zoom
+  gsap.to('#heroImg', { scale:1.12, ease:'none', scrollTrigger:{ trigger:'.hero', start:'top top', end:'bottom top', scrub:1.5 } });
+
+  // gentle fades
+  gsap.utils.toArray('.reveal:not(.clip)').forEach(el => {
+    gsap.to(el, { opacity:1, y:0, duration:1.0, ease:'power2.out', scrollTrigger:{ trigger:el, start:'top 88%' } });
+  });
+  // clip-path slow reveals
+  gsap.utils.toArray('.clip').forEach(el => {
+    gsap.to(el, { clipPath:'inset(0 0 0% 0)', opacity:1, y:0, duration:1.3, ease:'power3.inOut', scrollTrigger:{ trigger:el, start:'top 82%' } });
+  });
+
+  // count-up
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const target = parseFloat(el.dataset.count);
+    const dec = parseInt(el.dataset.dec || '0');
+    const obj = { v:0 };
+    gsap.to(obj, { v:target, duration:1.8, ease:'power2.out',
+      scrollTrigger:{ trigger:'.stats', start:'top 80%', once:true },
+      onUpdate:()=>{ el.textContent = dec ? obj.v.toFixed(dec) : Math.round(obj.v); }
+    });
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => { const id=a.getAttribute('href'); if(id.length>1){ e.preventDefault(); lenis.scrollTo(id,{offset:-40}); } });
+  });
+} else {
+  document.querySelectorAll('.reveal,.clip').forEach(el => { el.style.opacity=1; el.style.transform='none'; el.style.clipPath='none'; });
+  document.querySelectorAll('[data-count]').forEach(el => { const d=parseInt(el.dataset.dec||'0'); el.textContent = d ? parseFloat(el.dataset.count).toFixed(d) : el.dataset.count; });
+}
+</script>
+</body>
+</html>
