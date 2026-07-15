@@ -1,5 +1,0 @@
-Konoba Marenda — v2 (Daylight heritage, horizontal menu band + count-up)
-Live URL: https://artme-nx.github.io/konoba-marenda-v2/
-Repo URL: https://github.com/artme-nx/konoba-marenda-v2
-Account: artme-nx
-Objavljeno: 2026-06-21
